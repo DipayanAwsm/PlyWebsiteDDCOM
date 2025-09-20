@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Products - DD and Sons{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<section class="py-4 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-6 fw-bold mb-2">Manage Products</h1>
+                <p class="mb-0">Add, edit, or remove products from your catalog</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('add_product') }}" class="btn btn-light">
+                    <i class="fas fa-plus me-2"></i>Add Product
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products List -->
+<section class="py-5">
+    <div class="container">
+        {% if products %}
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    {% if product.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + product.image) }}" 
+                         class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="fas fa-box text-muted display-4"></i>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text text-muted flex-grow-1">
+                            {{ product.description or 'No description available.' }}
+                        </p>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h6 text-primary">₹{{ "%.2f"|format(product.price) }}</span>
+                                <span class="badge bg-{{ 'success' if product.availability == 'In Stock' else 'warning' }}">
+                                    {{ product.availability }}
+                                </span>
+                            </div>
+                            <small class="text-muted">
+                                <i class="fas fa-th-large me-1"></i>{{ product.category.name }}
+                            </small>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <div class="d-flex gap-2">
+                                <a href="{{ url_for('edit_product', product_id=product.id) }}" 
+                                   class="btn btn-outline-primary btn-sm flex-grow-1">
+                                    <i class="fas fa-edit me-1"></i>Edit
+                                </a>
+                                <a href="{{ url_for('product_view', product_id=product.id) }}" 
+                                   class="btn btn-outline-secondary btn-sm">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                {% if session.role == 'admin' %}
+                                <button class="btn btn-outline-danger btn-sm" 
+                                        onclick="deleteProduct({{ product.id }}, '{{ product.name }}')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                {% endif %}
+                            </div>
+                            
+                            {% if product.qr_code %}
+                            <div class="text-center mt-2">
+                                <button class="btn btn-outline-info btn-sm" 
+                                        onclick="showQRCode('{{ product.qr_code }}', '{{ product.name }}')">
+                                    <i class="fas fa-qrcode me-1"></i>QR Code
+                                </button>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="py-5">
+                    <i class="fas fa-box text-muted display-1 mb-3"></i>
+                    <h4 class="text-muted">No products found</h4>
+                    <p class="text-muted">Start by adding your first product.</p>
+                    <a href="{{ url_for('add_product') }}" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Add Product
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- QR Code Modal -->
+<div class="modal fade" id="qrModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="qrModalTitle">QR Code</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="qrModalImage" src="" alt="QR Code" class="img-fluid">
+                <p class="mt-3 text-muted">Scan this QR code to quickly access this product</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete the product "<span id="deleteProductName"></span>"?</p>
+                <p class="text-danger"><strong>Warning:</strong> This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a href="#" id="deleteProductBtn" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function showQRCode(qrCodeData, title) {
+    document.getElementById('qrModalTitle').textContent = title + ' - QR Code';
+    document.getElementById('qrModalImage').src = qrCodeData;
+    new bootstrap.Modal(document.getElementById('qrModal')).show();
+}
+
+function deleteProduct(productId, productName) {
+    document.getElementById('deleteProductName').textContent = productName;
+    document.getElementById('deleteProductBtn').href = "{{ url_for('delete_product', product_id=0) }}".replace('0', productId);
+    new bootstrap.Modal(document.getElementById('deleteModal')).show();
+}
+</script>
+{% endblock %}
