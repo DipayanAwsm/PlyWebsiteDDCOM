@@ -1,12 +1,12 @@
 // Main JavaScript for DD and Sons Website
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Protect login forms from any interference
-    const loginForms = document.querySelectorAll('form[action*="login"]');
-    loginForms.forEach(function(form) {
-        // Ensure login forms submit normally without any JavaScript interference
+    // Protect ALL admin forms from any interference
+    const adminForms = document.querySelectorAll('form[action*="login"], form[action*="admin"], form[action*="add"], form[action*="edit"], form[action*="delete"]');
+    adminForms.forEach(function(form) {
+        // Ensure admin forms submit normally without any JavaScript interference
         form.addEventListener('submit', function(e) {
-            console.log('Login form submitting normally');
+            console.log('Admin form submitting normally:', form.action);
             // Don't prevent default - let the form submit naturally
         });
     });
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Form validation enhancement - only for forms with needs-validation class
     // Exclude login forms and admin forms to prevent interference
-    const forms = document.querySelectorAll('form.needs-validation:not([action*="login"]):not([action*="admin"])');
+    const forms = document.querySelectorAll('form.needs-validation:not([action*="login"]):not([action*="admin"]):not([action*="add"]):not([action*="edit"]):not([action*="delete"])');
     forms.forEach(function(form) {
         form.addEventListener('submit', function(event) {
             if (!form.checkValidity()) {
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Loading states for buttons - exclude login forms and admin forms
-    const submitButtons = document.querySelectorAll('button[type="submit"]:not(form[action*="login"] button):not(form[action*="admin"] button)');
+    const submitButtons = document.querySelectorAll('button[type="submit"]:not(form[action*="login"] button):not(form[action*="admin"] button):not(form[action*="add"] button):not(form[action*="edit"] button):not(form[action*="delete"] button)');
     submitButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             const form = this.closest('form');
