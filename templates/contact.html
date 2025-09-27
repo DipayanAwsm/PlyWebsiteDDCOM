@@ -267,7 +267,7 @@
 {% block extra_js %}
 {% if contact_info and contact_info.latitude and contact_info.longitude %}
 <!-- Google Maps API -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config.GOOGLE_MAPS_API_KEY }}&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap"></script>
 
 <script>
 let map;

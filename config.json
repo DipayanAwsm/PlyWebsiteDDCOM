@@ -1,0 +1,37 @@
+{
+  "FLASK": {
+    "SECRET_KEY": "your-secret-key-here",
+    "DEBUG": true,
+    "HOST": "0.0.0.0",
+    "PORT": "8080"
+  },
+  "DATABASE": {
+    "URI": "sqlite:///dd_sons.db"
+  },
+  "UPLOAD": {
+    "FOLDER": "static/uploads",
+    "MAX_SIZE": 104857600
+  },
+  "GOOGLE_MAPS": {
+    "API_KEY": "YOUR_GOOGLE_MAPS_API_KEY"
+  },
+  "ADMIN": {
+    "DEFAULT_USERNAME": "admin",
+    "DEFAULT_PASSWORD": "admin123",
+    "DEFAULT_EMAIL": "admin@ddandsons.com"
+  },
+  "COMPANY": {
+    "NAME": "DD and Sons",
+    "PHONE": "+91-9876543210",
+    "EMAIL": "info@ddandsons.com",
+    "ADDRESS": "123 Industrial Area, City, State - 123456",
+    "LATITUDE": 28.6139,
+    "LONGITUDE": 77.209
+  },
+  "LOGGING": {
+    "LEVEL": "INFO",
+    "MAX_FILE_SIZE": 10485760,
+    "BACKUP_COUNT": 10,
+    "LOG_DIRECTORY": "logs"
+  }
+}

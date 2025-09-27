@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics - DD and Sons{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<section class="py-4 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-6 fw-bold mb-2">Website Analytics</h1>
+                <p class="mb-0">Track your website traffic and visitor behavior</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <div class="btn-group" role="group">
+                    <a href="{{ url_for('analytics', days=7) }}" 
+                       class="btn btn-light {{ 'active' if days == 7 else '' }}">7 Days</a>
+                    <a href="{{ url_for('analytics', days=30) }}" 
+                       class="btn btn-light {{ 'active' if days == 30 else '' }}">30 Days</a>
+                    <a href="{{ url_for('analytics', days=90) }}" 
+                       class="btn btn-light {{ 'active' if days == 90 else '' }}">90 Days</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Analytics Overview -->
+<section class="py-5">
+    <div class="container">
+        <!-- Key Metrics -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="card text-center border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-eye text-primary display-6 mb-3"></i>
+                        <h3 class="text-primary">{{ analytics.total_views or 0 }}</h3>
+                        <p class="text-muted mb-0">Total Page Views</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-users text-success display-6 mb-3"></i>
+                        <h3 class="text-success">{{ analytics.unique_visitors or 0 }}</h3>
+                        <p class="text-muted mb-0">Unique Visitors</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-chart-line text-info display-6 mb-3"></i>
+                        <h3 class="text-info">
+                            {% if analytics.unique_visitors > 0 %}
+                                {{ "%.1f"|format(analytics.total_views / analytics.unique_visitors) }}
+                            {% else %}
+                                0
+                            {% endif %}
+                        </h3>
+                        <p class="text-muted mb-0">Pages per Visit</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-clock text-warning display-6 mb-3"></i>
+                        <h3 class="text-warning">{{ days }}</h3>
+                        <p class="text-muted mb-0">Days Period</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Daily Views Chart -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-chart-area me-2"></i>Daily Page Views</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="dailyViewsChart" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Pages -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-star me-2"></i>Popular Pages</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if analytics.popular_pages %}
+                        <div class="list-group list-group-flush">
+                            {% for page in analytics.popular_pages[:10] %}
+                            <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <div>
+                                    <h6 class="mb-1">{{ page.title or page.url.split('/')[-1] or 'Home' }}</h6>
+                                    <small class="text-muted">{{ page.url }}</small>
+                                </div>
+                                <span class="badge bg-primary rounded-pill">{{ page.views }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <p class="text-muted text-center">No page views recorded</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-4">
+            <!-- Referrers -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="fas fa-external-link-alt me-2"></i>Top Referrers</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if analytics.referrers %}
+                        <div class="list-group list-group-flush">
+                            {% for referrer in analytics.referrers[:10] %}
+                            <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <div>
+                                    <h6 class="mb-1">
+                                        {% if referrer.referrer.startswith('http') %}
+                                            {{ referrer.referrer.split('//')[1].split('/')[0] }}
+                                        {% else %}
+                                            {{ referrer.referrer }}
+                                        {% endif %}
+                                    </h6>
+                                    <small class="text-muted">{{ referrer.referrer }}</small>
+                                </div>
+                                <span class="badge bg-info rounded-pill">{{ referrer.count }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <p class="text-muted text-center">No referrers recorded</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Visitors -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-warning text-white">
+                        <h5 class="mb-0"><i class="fas fa-user-clock me-2"></i>Recent Visitors</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if recent_visitors %}
+                        <div class="list-group list-group-flush">
+                            {% for visitor in recent_visitors[:10] %}
+                            <div class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <div>
+                                    <h6 class="mb-1">
+                                        <i class="fas fa-user me-1"></i>
+                                        Visitor {{ visitor.session_id[:8] }}...
+                                    </h6>
+                                    <small class="text-muted">
+                                        {{ visitor.page_views }} pages • 
+                                        {{ visitor.last_visit.strftime('%d/%m/%Y %H:%M') }}
+                                    </small>
+                                </div>
+                                <span class="badge bg-warning rounded-pill">{{ visitor.page_views }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <p class="text-muted text-center">No recent visitors</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Daily Views Chart
+    const dailyViewsData = {{ analytics.daily_views | tojson }};
+    
+    const labels = dailyViewsData.map(item => {
+        const date = new Date(item.date);
+        return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    });
+    
+    const views = dailyViewsData.map(item => item.views);
+    
+    const ctx = document.getElementById('dailyViewsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Page Views',
+                data: views,
+                borderColor: '#0d6efd',
+                backgroundColor: 'rgba(13, 110, 253, 0.1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+    
+    // Auto-refresh data every 5 minutes
+    setInterval(function() {
+        fetch('/api/analytics?days={{ days }}')
+            .then(response => response.json())
+            .then(data => {
+                // Update the page with new data
+                location.reload();
+            })
+            .catch(error => console.log('Error refreshing analytics:', error));
+    }, 300000); // 5 minutes
+});
+</script>
+{% endblock %}

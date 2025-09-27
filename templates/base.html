@@ -56,6 +56,9 @@
                                 <li><a class="dropdown-item" href="{{ url_for('manage_products') }}">
                                     <i class="fas fa-box me-2"></i>Products
                                 </a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('analytics') }}">
+                                    <i class="fas fa-chart-line me-2"></i>Analytics
+                                </a></li>
                                 {% if session.role == 'admin' %}
                                 <li><a class="dropdown-item" href="{{ url_for('manage_users') }}">
                                     <i class="fas fa-users me-2"></i>Users

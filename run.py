@@ -5,18 +5,28 @@ This script runs the Flask application in production mode.
 """
 
 import os
-from app import app, init_db
+import json
+from app import app, init_db, config
 
 if __name__ == '__main__':
     # Initialize database
     init_db()
     
-    # Get port from environment variable or use default
-    port = int(os.environ.get('PORT', 5000))
+    # Override config for production
+    production_config = config.copy()
+    production_config['FLASK']['DEBUG'] = False
+    production_config['FLASK']['HOST'] = '0.0.0.0'
+    
+    # Get port from environment variable or use config
+    port = int(os.environ.get('PORT', production_config['FLASK']['PORT']))
+    production_config['FLASK']['PORT'] = port
+    
+    print(f"Starting DD and Sons website on {production_config['FLASK']['HOST']}:{port}")
+    print(f"Debug mode: {production_config['FLASK']['DEBUG']}")
     
     # Run the application
     app.run(
-        host='0.0.0.0',
-        port=port,
-        debug=False  # Set to False for production
+        host=production_config['FLASK']['HOST'],
+        port=production_config['FLASK']['PORT'],
+        debug=production_config['FLASK']['DEBUG']
     )

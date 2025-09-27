@@ -77,16 +77,42 @@ python app.py
 
 The application will start on `http://localhost:5000`
 
-### Step 5: Configure Google Maps (Optional)
-1. Get a Google Maps API key from [Google Cloud Console](https://console.cloud.google.com/)
-2. Enable the following APIs:
-   - Maps JavaScript API
-   - Places API (optional)
-3. Copy `env_example.txt` to `.env`
-4. Add your API key to the `.env` file:
-   ```
-   GOOGLE_MAPS_API_KEY=your-api-key-here
-   ```
+### Step 5: Configure the Application
+The application uses a `config.json` file for all settings. You can configure it in several ways:
+
+#### Option A: Interactive Setup (Recommended)
+```bash
+python config_manager.py setup
+```
+
+#### Option B: Manual Configuration
+Edit the `config.json` file directly:
+```json
+{
+  "FLASK": {
+    "PORT": 5000,
+    "HOST": "127.0.0.1",
+    "DEBUG": true
+  },
+  "ADMIN": {
+    "DEFAULT_USERNAME": "admin",
+    "DEFAULT_PASSWORD": "admin123"
+  },
+  "GOOGLE_MAPS": {
+    "API_KEY": "your-google-maps-api-key"
+  }
+}
+```
+
+#### Option C: Command Line Updates
+```bash
+# Show current configuration
+python config_manager.py show
+
+# Update specific settings
+python config_manager.py update FLASK PORT 8080
+python config_manager.py update GOOGLE_MAPS API_KEY your-key-here
+```
 
 ### Step 6: Access the Application
 - **Public Website**: http://localhost:5000
@@ -142,14 +168,72 @@ WebsiteForDDCOM/
 
 ## Configuration
 
-### Environment Variables
-You can set these environment variables for production:
+### Configuration File
+The application uses `config.json` for all settings. This makes it easy to customize without modifying code.
+
+### Configuration Sections
+
+#### Flask Settings
+```json
+"FLASK": {
+  "SECRET_KEY": "your-secret-key",
+  "DEBUG": true,
+  "HOST": "127.0.0.1",
+  "PORT": 5000
+}
+```
+
+#### Database Settings
+```json
+"DATABASE": {
+  "URI": "sqlite:///dd_sons.db"
+}
+```
+
+#### Admin Settings
+```json
+"ADMIN": {
+  "DEFAULT_USERNAME": "admin",
+  "DEFAULT_PASSWORD": "admin123",
+  "DEFAULT_EMAIL": "admin@ddandsons.com"
+}
+```
+
+#### Google Maps Settings
+```json
+"GOOGLE_MAPS": {
+  "API_KEY": "your-google-maps-api-key"
+}
+```
+
+#### Company Information
+```json
+"COMPANY": {
+  "NAME": "DD and Sons",
+  "PHONE": "+91-9876543210",
+  "EMAIL": "info@ddandsons.com",
+  "ADDRESS": "123 Industrial Area, City, State - 123456",
+  "LATITUDE": 28.6139,
+  "LONGITUDE": 77.2090
+}
+```
+
+### Configuration Management Commands
 
 ```bash
-export FLASK_ENV=production
-export SECRET_KEY=your-secret-key-here
-export DATABASE_URL=sqlite:///dd_sons.db
-export GOOGLE_MAPS_API_KEY=your-google-maps-api-key
+# Show current configuration
+python config_manager.py show
+
+# Interactive setup
+python config_manager.py setup
+
+# Update specific settings
+python config_manager.py update FLASK PORT 8080
+python config_manager.py update ADMIN DEFAULT_PASSWORD newpassword123
+python config_manager.py update GOOGLE_MAPS API_KEY your-api-key
+
+# Create default configuration
+python config_manager.py create
 ```
 
 ### Google Maps Features

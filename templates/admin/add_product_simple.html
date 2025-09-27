@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}Add Product - DD and Sons{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<section class="py-4 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-6 fw-bold mb-2">Add New Product</h1>
+                <p class="mb-0">Add a new product to your catalog</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{{ url_for('manage_products') }}" class="btn btn-light">
+                    <i class="fas fa-arrow-left me-2"></i>Back to Products
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add Product Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0"><i class="fas fa-plus-circle me-2"></i>Product Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data" id="addProductForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <label for="name" class="form-label">Product Name *</label>
+                                        <input type="text" class="form-control" id="name" name="name" required 
+                                               placeholder="e.g., Premium Marine Plywood">
+                                        <div class="form-text">Enter a descriptive name for the product.</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <label for="category_id" class="form-label">Category *</label>
+                                        <select class="form-select" id="category_id" name="category_id" required>
+                                            <option value="">Select a category</option>
+                                            {% for category in categories %}
+                                            <option value="{{ category.id }}">{{ category.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <div class="form-text">Choose the category this product belongs to.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="4" 
+                                          placeholder="Describe the product features, specifications, and benefits..."></textarea>
+                                <div class="form-text">Provide detailed information about the product.</div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <label for="price" class="form-label">Price (₹) *</label>
+                                        <input type="number" class="form-control" id="price" name="price" required 
+                                               step="0.01" min="0" placeholder="0.00">
+                                        <div class="form-text">Enter the price in Indian Rupees.</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="mb-4">
+                                        <label for="availability" class="form-label">Availability *</label>
+                                        <select class="form-select" id="availability" name="availability" required>
+                                            <option value="In Stock">In Stock</option>
+                                            <option value="Out of Stock">Out of Stock</option>
+                                            <option value="Limited Stock">Limited Stock</option>
+                                            <option value="Pre-order">Pre-order</option>
+                                        </select>
+                                        <div class="form-text">Current availability status.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="image" class="form-label">Product Image</label>
+                                <input type="file" class="form-control" id="image" name="image" 
+                                       accept="image/*">
+                                <div class="form-text">Upload an image for this product (PNG, JPG, JPEG, GIF, WebP).</div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="pdf_catalog" class="form-label">PDF Catalog</label>
+                                <input type="file" class="form-control" id="pdf_catalog" name="pdf_catalog" 
+                                       accept=".pdf">
+                                <div class="form-text">
+                                    <i class="fas fa-file-pdf text-danger me-1"></i>
+                                    Upload a PDF catalog for this product. Customers will be able to view it page by page.
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex gap-3">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="fas fa-save me-2"></i>Create Product
+                                </button>
+                                <a href="{{ url_for('manage_products') }}" class="btn btn-secondary btn-lg">
+                                    <i class="fas fa-times me-2"></i>Cancel
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<!-- No JavaScript - pure HTML form submission -->
+<script>
+// Simple form validation without interference
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('addProductForm');
+    const submitBtn = document.querySelector('button[type="submit"]');
+    
+    console.log('🔍 Simple form loaded - no JavaScript interference');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            console.log('🔍 Form submitting - no prevention');
+            // Don't prevent default - let it submit naturally
+        });
+    }
+});
+</script>
+{% endblock %}
+

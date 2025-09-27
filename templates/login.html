@@ -12,15 +12,21 @@
                         <h4 class="mb-0"><i class="fas fa-sign-in-alt me-2"></i>Login</h4>
                     </div>
                     <div class="card-body">
-                        <form method="POST">
+                        <!-- Debug info -->
+                        <div class="alert alert-warning">
+                            <strong>⚠️ JavaScript Issue Detected:</strong> This page has JavaScript interference.
+                            <br>Try the clean version: <a href="/login-clean" class="btn btn-sm btn-success">Clean Login</a>
+                        </div>
+                        
+                        <form method="POST" action="/login" id="loginForm">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" required>
+                                <input type="text" class="form-control" id="username" name="username" value="admin" required>
                             </div>
                             
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                                <input type="password" class="form-control" id="password" name="password" value="admin123" required>
                             </div>
                             
                             <button type="submit" class="btn btn-primary w-100">
@@ -33,10 +39,38 @@
                             <i class="fas fa-info-circle me-1"></i>
                             Admin/Owner access only
                         </small>
+                        <br>
+                        <small class="text-muted">
+                            <strong>Test:</strong> admin / admin123
+                        </small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Additional debug script for login form
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        console.log('Login form found:', loginForm);
+        
+        loginForm.addEventListener('submit', function(e) {
+            console.log('Login form submit event triggered');
+            console.log('Form action:', this.action);
+            console.log('Form method:', this.method);
+            console.log('Username:', document.getElementById('username').value);
+            console.log('Password:', document.getElementById('password').value);
+            
+            // Don't prevent default - let it submit
+        });
+    } else {
+        console.error('Login form not found!');
+    }
+});
+</script>
 {% endblock %}

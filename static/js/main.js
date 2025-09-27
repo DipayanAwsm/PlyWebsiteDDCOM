@@ -1,6 +1,15 @@
 // Main JavaScript for DD and Sons Website
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Protect login forms from any interference
+    const loginForms = document.querySelectorAll('form[action*="login"]');
+    loginForms.forEach(function(form) {
+        // Ensure login forms submit normally without any JavaScript interference
+        form.addEventListener('submit', function(e) {
+            console.log('Login form submitting normally');
+            // Don't prevent default - let the form submit naturally
+        });
+    });
     // Initialize tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
@@ -36,8 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form validation enhancement
-    const forms = document.querySelectorAll('.needs-validation');
+    // Form validation enhancement - only for forms with needs-validation class
+    // Exclude login forms and admin forms to prevent interference
+    const forms = document.querySelectorAll('form.needs-validation:not([action*="login"]):not([action*="admin"])');
     forms.forEach(function(form) {
         form.addEventListener('submit', function(event) {
             if (!form.checkValidity()) {
@@ -66,8 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Loading states for buttons
-    const submitButtons = document.querySelectorAll('button[type="submit"]');
+    // Loading states for buttons - exclude login forms and admin forms
+    const submitButtons = document.querySelectorAll('button[type="submit"]:not(form[action*="login"] button):not(form[action*="admin"] button)');
     submitButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             const form = this.closest('form');
@@ -174,8 +184,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Contact form enhancement
-    const contactForm = document.querySelector('#contactForm');
+    // Contact form enhancement - only for contact forms
+    const contactForm = document.querySelector('form#contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();

@@ -1,0 +1,987 @@
+2025-09-20 23:34:57,312 - werkzeug - ERROR - 192.168.0.106 - - [20/Sep/2025 23:34:57] code 400, message Bad request version ('\x89oÁoä×J\x91*\x0eOë\x9eæcÆ\x99k\x16)djØÑ\x8aÙ@\x0eñV\x87d\x00\x90ÍS*}ØJ')
+2025-09-20 23:34:57,352 - werkzeug - ERROR - 192.168.0.106 - - [20/Sep/2025 23:34:57] code 400, message Bad request syntax ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03Y\x86\x05$_Í\x172¦2ë5\x82Ýs\x1a\x9f\x04\x8e')
+2025-09-20 23:35:13,790 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.106 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:35:13,800 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:35:27,721 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.106 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:35:27,724 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:38:32,747 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.106 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:38:32,752 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:39:24,419 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.106 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:39:24,423 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:39:32,782 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.106 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:39:32,785 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:39:59,461 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.106 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:39:59,469 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:40:09,013 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.102 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:40:09,014 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:40:30,083 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.106 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:40:30,090 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:40:36,732 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.106 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:40:36,738 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:40:47,597 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.106 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:40:47,597 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:41:49,319 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.102 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:41:49,322 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:42:00,423 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.102 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:42:00,426 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-20 23:43:32,849 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.102 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-20 23:43:32,856 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-21 17:54:31,363 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.102 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-21 17:54:31,369 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-21 17:54:37,716 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.102 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-21 17:54:37,719 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 647, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-21 17:57:13,262 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.102 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-21 17:57:13,270 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 650, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-21 17:57:21,031 - __main__ - ERROR - Dashboard error for user: admin from IP: 192.168.0.102 - (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-09-21 17:57:21,034 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: product.pdf_catalog
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 650, in dashboard
+    products = Product.query.all()
+               ^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2673, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/anaconda3/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product.pdf_catalog
+[SQL: SELECT product.id AS product_id, product.name AS product_name, product.description AS product_description, product.price AS product_price, product.availability AS product_availability, product.image AS product_image, product.pdf_catalog AS product_pdf_catalog, product.pdf_pages AS product_pdf_pages, product.view_count AS product_view_count, product.qr_code AS product_qr_code, product.category_id AS product_category_id, product.created_at AS product_created_at 
+FROM product]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-09-21 23:45:50,057 - __main__ - ERROR - Error creating product: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-09-27 22:59:49,196 - __main__ - ERROR - Failed to start application: signal only works in main thread of the main interpreter
+2025-09-27 22:59:49,199 - __main__ - ERROR - Traceback: Traceback (most recent call last):
+  File "/Users/rituparnapaldas/Documents/PersonalPoc/WebsiteForDDCOM/app.py", line 1133, in <module>
+    app.run(
+  File "/opt/anaconda3/lib/python3.12/site-packages/flask/app.py", line 889, in run
+    run_simple(t.cast(str, host), port, self, **options)
+  File "/opt/anaconda3/lib/python3.12/site-packages/werkzeug/serving.py", line 1097, in run_simple
+    run_with_reloader(
+  File "/opt/anaconda3/lib/python3.12/site-packages/werkzeug/_reloader.py", line 439, in run_with_reloader
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+  File "/opt/anaconda3/lib/python3.12/signal.py", line 58, in signal
+    handler = _signal.signal(_enum_to_int(signalnum), _enum_to_int(handler))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: signal only works in main thread of the main interpreter
+
