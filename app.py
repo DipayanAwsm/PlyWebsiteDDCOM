@@ -715,8 +715,10 @@ def manage_categories():
 @login_required
 def add_category():
     if request.method == 'POST':
+        logger.info("Category creation request received")
         name = request.form['name']
         description = request.form['description']
+        logger.info(f"Category data: name={name}, description={description[:50]}...")
         
         # Handle image upload
         image_filename = None
@@ -733,16 +735,24 @@ def add_category():
             image=image_filename
         )
         
-        db.session.add(category)
-        db.session.commit()
-        
-        # Generate QR code
-        qr_data = f"{request.url_root}category/{category.id}"
-        category.qr_code = generate_qr_code(qr_data)
-        db.session.commit()
-        
-        flash('Category added successfully!', 'success')
-        return redirect(url_for('manage_categories'))
+        try:
+            db.session.add(category)
+            db.session.commit()
+            logger.info(f"Category created successfully: {category.name} (ID: {category.id})")
+            
+            # Generate QR code
+            qr_data = f"{request.url_root}category/{category.id}"
+            category.qr_code = generate_qr_code(qr_data)
+            db.session.commit()
+            
+            flash('Category added successfully!', 'success')
+            return redirect(url_for('manage_categories'))
+            
+        except Exception as e:
+            logger.error(f"Error creating category: {e}")
+            db.session.rollback()
+            flash('Error creating category. Please try again.', 'error')
+            return render_template('admin/add_category.html')
     
     return render_template('admin/add_category.html')
 
