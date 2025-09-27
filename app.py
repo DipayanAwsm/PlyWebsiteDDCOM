@@ -61,6 +61,12 @@ def load_config():
 # Load configuration
 config = load_config()
 
+# Override config for production environment
+if os.environ.get('FLASK_ENV') == 'production':
+    config['FLASK']['DEBUG'] = False
+    config['FLASK']['SECRET_KEY'] = os.environ.get('SECRET_KEY', config['FLASK']['SECRET_KEY'])
+    config['FLASK']['PORT'] = int(os.environ.get('PORT', config['FLASK']['PORT']))
+
 # Configure logging
 def setup_logging():
     """Setup comprehensive logging for the application"""
@@ -453,8 +459,18 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if 'user_id' not in session:
+            logger.warning(f"Unauthorized access attempt to {request.endpoint} from IP: {get_client_ip()}")
             flash('Please log in to access this page.', 'error')
             return redirect(url_for('login'))
+        
+        # Verify user still exists
+        user = User.query.get(session['user_id'])
+        if not user:
+            logger.warning(f"Session user not found for user_id: {session['user_id']} from IP: {get_client_ip()}")
+            session.clear()
+            flash('Session expired. Please log in again.', 'error')
+            return redirect(url_for('login'))
+            
         return f(*args, **kwargs)
     return decorated_function
 
