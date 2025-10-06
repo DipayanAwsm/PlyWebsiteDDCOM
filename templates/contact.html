@@ -66,7 +66,7 @@
                                 <h4 class="mb-0"><i class="fas fa-building me-2"></i>Company Information</h4>
                             </div>
                             <div class="card-body">
-                                <h5 class="text-primary mb-4">{{ contact_info.company_name if contact_info else 'DD and Sons' }}</h5>
+                                <h5 class="text-primary mb-4">{{ contact_info.company_name if contact_info else 'DDPlyAndSons' }}</h5>
                                 
                                 <div class="contact-item mb-4">
                                     <div class="d-flex align-items-center">
@@ -93,6 +93,21 @@
                                             <a href="mailto:{{ contact_info.email if contact_info and contact_info.email else 'info@ddandsons.com' }}" 
                                                class="text-decoration-none">
                                                 {{ contact_info.email if contact_info and contact_info.email else 'info@ddandsons.com' }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Location (Google Maps) -->
+                                <div class="contact-item mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="contact-icon me-3">
+                                            <i class="fas fa-map-marker-alt text-danger"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Location</strong><br>
+                                            <a href="https://maps.app.goo.gl/wzRyfxHiWatsz4QW7" target="_blank" rel="noopener" class="text-decoration-none">
+                                                DDPlyAndSons on Google Maps
                                             </a>
                                         </div>
                                     </div>

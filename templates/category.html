@@ -55,7 +55,11 @@
                         
                         <div class="product-info mb-3">
                             <div class="d-flex justify-content-between align-items-center">
+                                {% if session.user_id %}
                                 <span class="h5 text-primary mb-0">₹{{ "%.2f"|format(product.price) }}</span>
+                                {% else %}
+                                <span class="h6 text-muted mb-0">Contact for price</span>
+                                {% endif %}
                                 <span class="badge bg-{{ 'success' if product.availability == 'In Stock' else 'warning' }}">
                                     {{ product.availability }}
                                 </span>
