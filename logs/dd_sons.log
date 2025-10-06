@@ -7645,3 +7645,116 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) NOT NULL constraint fail
 2025-10-06 18:22:03,452 - app - INFO - Request: GET http://localhost:8080/ from IP: 127.0.0.1
 2025-10-06 18:22:03,463 - app - INFO - Response: 200 for GET http://localhost:8080/ from IP: 127.0.0.1
 2025-10-06 18:22:03,463 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 18:22:03] "GET / HTTP/1.1" 200 -
+2025-10-06 19:50:48,559 - app - INFO - Logging system initialized
+2025-10-06 19:50:48,737 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.103:8080
+2025-10-06 19:50:48,737 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-06 19:50:55,108 - app - INFO - Request: GET http://localhost:8080/ from IP: 127.0.0.1
+2025-10-06 19:50:55,164 - app - INFO - Response: 200 for GET http://localhost:8080/ from IP: 127.0.0.1
+2025-10-06 19:50:55,165 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 19:50:55] "GET / HTTP/1.1" 200 -
+2025-10-06 19:50:55,198 - app - INFO - Request: GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 19:50:55,199 - app - INFO - Request: GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 19:50:55,207 - app - INFO - Response: 304 for GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 19:50:55,207 - app - INFO - Response: 304 for GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 19:50:55,207 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 19:50:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-06 19:50:55,207 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 19:50:55] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-06 19:50:56,615 - app - INFO - Request: GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 19:50:56,615 - app - INFO - Login attempt Dipayan1 method: GET
+2025-10-06 19:50:56,615 - app - INFO - Login page accessed from IP: 127.0.0.1
+2025-10-06 19:50:56,619 - app - INFO - Response: 200 for GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 19:50:56,619 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 19:50:56] "GET /login HTTP/1.1" 200 -
+2025-10-06 19:50:56,630 - app - INFO - Request: GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 19:50:56,631 - app - INFO - Request: GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 19:50:56,632 - app - INFO - Response: 304 for GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 19:50:56,632 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 19:50:56] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-06 19:50:56,633 - app - INFO - Response: 304 for GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 19:50:56,633 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 19:50:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-06 20:01:11,294 - app - INFO - Logging system initialized
+2025-10-06 20:01:11,327 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.103:8080
+2025-10-06 20:01:11,327 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-06 20:01:15,299 - app - INFO - Request: GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:15,299 - app - INFO - Login attempt Dipayan1 method: GET
+2025-10-06 20:01:15,300 - app - INFO - Login page accessed from IP: 127.0.0.1
+2025-10-06 20:01:15,328 - app - INFO - Response: 200 for GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:15,329 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:15] "GET /login HTTP/1.1" 200 -
+2025-10-06 20:01:15,372 - app - INFO - Request: GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:15,373 - app - INFO - Request: GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:15,381 - app - INFO - Response: 304 for GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:15,381 - app - INFO - Response: 304 for GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:15,381 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:15] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-06 20:01:15,382 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-06 20:01:17,450 - app - INFO - Request: GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:17,450 - app - INFO - Login attempt Dipayan1 method: GET
+2025-10-06 20:01:17,450 - app - INFO - Login page accessed from IP: 127.0.0.1
+2025-10-06 20:01:17,451 - app - INFO - Response: 200 for GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:17,451 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:17] "GET /login HTTP/1.1" 200 -
+2025-10-06 20:01:17,470 - app - INFO - Request: GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:17,472 - app - INFO - Request: GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:17,472 - app - INFO - Response: 304 for GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:17,473 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-06 20:01:17,473 - app - INFO - Response: 304 for GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:17,473 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:17] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-06 20:01:18,014 - app - INFO - Request: GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:18,015 - app - INFO - Login attempt Dipayan1 method: GET
+2025-10-06 20:01:18,015 - app - INFO - Login page accessed from IP: 127.0.0.1
+2025-10-06 20:01:18,015 - app - INFO - Response: 200 for GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:18,016 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:18] "GET /login HTTP/1.1" 200 -
+2025-10-06 20:01:18,029 - app - INFO - Request: GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:18,030 - app - INFO - Request: GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:18,031 - app - INFO - Response: 304 for GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:18,031 - app - INFO - Response: 304 for GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:18,031 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-06 20:01:18,032 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:18] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-06 20:01:18,210 - app - INFO - Request: GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:18,211 - app - INFO - Login attempt Dipayan1 method: GET
+2025-10-06 20:01:18,211 - app - INFO - Login page accessed from IP: 127.0.0.1
+2025-10-06 20:01:18,212 - app - INFO - Response: 200 for GET http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:18,212 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:18] "GET /login HTTP/1.1" 200 -
+2025-10-06 20:01:18,221 - app - INFO - Request: GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:18,222 - app - INFO - Request: GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:18,223 - app - INFO - Response: 304 for GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:18,223 - app - INFO - Response: 304 for GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:18,224 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-06 20:01:18,224 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:18] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-06 20:01:24,717 - app - INFO - Request: POST http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:24,718 - app - INFO - Login attempt Dipayan1 method: POST
+2025-10-06 20:01:24,718 - app - INFO - Login attempt Dipayan2
+2025-10-06 20:01:24,719 - app - INFO - Login attempt from IP 127.0.0.1 for username: admin
+2025-10-06 20:01:24,994 - app - INFO - Successful login for user: admin (ID: 1, Role: admin) from IP: 127.0.0.1
+2025-10-06 20:01:24,994 - app - INFO - Response: 302 for POST http://localhost:8080/login from IP: 127.0.0.1
+2025-10-06 20:01:24,996 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-10-06 20:01:25,003 - app - INFO - Request: GET http://localhost:8080/dashboard from IP: 127.0.0.1
+2025-10-06 20:01:25,005 - app - INFO - Dashboard accessed by user: admin from IP: 127.0.0.1
+2025-10-06 20:01:25,014 - app - INFO - Dashboard data loaded for user: admin - Categories: 5, Products: 8
+2025-10-06 20:01:25,020 - app - INFO - Response: 200 for GET http://localhost:8080/dashboard from IP: 127.0.0.1
+2025-10-06 20:01:25,021 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:25] "GET /dashboard HTTP/1.1" 200 -
+2025-10-06 20:01:25,051 - app - INFO - Request: GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:25,053 - app - INFO - Request: GET http://localhost:8080/static/uploads/product_20250921_235109_WhatsApp_Image_2025-09-21_at_19.18.47_5.jpeg from IP: 127.0.0.1
+2025-10-06 20:01:25,054 - app - INFO - Response: 304 for GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:25,054 - app - INFO - Response: 404 for GET http://localhost:8080/static/uploads/product_20250921_235109_WhatsApp_Image_2025-09-21_at_19.18.47_5.jpeg from IP: 127.0.0.1
+2025-10-06 20:01:25,055 - app - INFO - Request: GET http://localhost:8080/static/uploads/product_20250922_002101_WhatsApp_Image_2025-09-21_at_19.18.47_1.jpeg from IP: 127.0.0.1
+2025-10-06 20:01:25,055 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-06 20:01:25,055 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:25] "[33mGET /static/uploads/product_20250921_235109_WhatsApp_Image_2025-09-21_at_19.18.47_5.jpeg HTTP/1.1[0m" 404 -
+2025-10-06 20:01:25,056 - app - INFO - Response: 304 for GET http://localhost:8080/static/uploads/product_20250922_002101_WhatsApp_Image_2025-09-21_at_19.18.47_1.jpeg from IP: 127.0.0.1
+2025-10-06 20:01:25,062 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:25] "[36mGET /static/uploads/product_20250922_002101_WhatsApp_Image_2025-09-21_at_19.18.47_1.jpeg HTTP/1.1[0m" 304 -
+2025-10-06 20:01:25,123 - app - INFO - Request: GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:25,123 - app - INFO - Response: 304 for GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:25,124 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:25] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-06 20:01:32,638 - app - INFO - Request: GET http://localhost:8080/logout from IP: 127.0.0.1
+2025-10-06 20:01:32,639 - app - INFO - User admin logged out from IP: 127.0.0.1
+2025-10-06 20:01:32,639 - app - INFO - Response: 302 for GET http://localhost:8080/logout from IP: 127.0.0.1
+2025-10-06 20:01:32,640 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:32] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-10-06 20:01:32,645 - app - INFO - Request: GET http://localhost:8080/ from IP: 127.0.0.1
+2025-10-06 20:01:32,672 - app - INFO - Response: 200 for GET http://localhost:8080/ from IP: 127.0.0.1
+2025-10-06 20:01:32,673 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:32] "GET / HTTP/1.1" 200 -
+2025-10-06 20:01:32,696 - app - INFO - Request: GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:32,699 - app - INFO - Request: GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:32,700 - app - INFO - Response: 304 for GET http://localhost:8080/static/css/style.css from IP: 127.0.0.1
+2025-10-06 20:01:32,700 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-06 20:01:32,700 - app - INFO - Response: 304 for GET http://localhost:8080/static/js/main.js from IP: 127.0.0.1
+2025-10-06 20:01:32,701 - werkzeug - INFO - 127.0.0.1 - - [06/Oct/2025 20:01:32] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
