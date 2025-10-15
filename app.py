@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session, send_from_directory, send_file, make_response
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from werkzeug.utils import secure_filename
@@ -14,6 +14,9 @@ from logging.handlers import RotatingFileHandler
 import traceback
 import PyPDF2
 from werkzeug.datastructures import FileStorage
+import time
+import hmac
+import hashlib
 
 # Load configuration from config.json
 def load_config():
@@ -388,6 +391,31 @@ def get_pdf_page_count(pdf_path):
         logger.error(f"Error reading PDF {pdf_path}: {e}")
         return 0
 
+def generate_pdf_token(product_id, filename, ttl_seconds=600):
+    """Generate a short-lived HMAC token for secure PDF access."""
+    expires_at = int(time.time()) + ttl_seconds
+    message = f"{product_id}:{filename}:{expires_at}".encode()
+    secret = app.config['SECRET_KEY'].encode()
+    signature = hmac.new(secret, message, hashlib.sha256).hexdigest()
+    return f"{expires_at}:{signature}"
+
+def verify_pdf_token(product_id, filename, token):
+    """Verify HMAC token and expiration."""
+    try:
+        parts = token.split(":", 1)
+        if len(parts) != 2:
+            return False
+        expires_at_str, signature = parts
+        expires_at = int(expires_at_str)
+        if time.time() > expires_at:
+            return False
+        message = f"{product_id}:{filename}:{expires_at}".encode()
+        secret = app.config['SECRET_KEY'].encode()
+        expected_sig = hmac.new(secret, message, hashlib.sha256).hexdigest()
+        return hmac.compare_digest(signature, expected_sig)
+    except Exception:
+        return False
+
 def track_product_view(product_id, page_number=1, view_type='product'):
     """Track a product view"""
     try:
@@ -527,7 +555,10 @@ def product_pdf_viewer(product_id):
     # Track PDF view
     track_product_view(product_id, view_type='pdf_viewer')
     
-    return render_template('pdf_viewer.html', product=product)
+    # Generate secure token for inline viewing
+    token = generate_pdf_token(product_id, product.pdf_catalog, ttl_seconds=900)
+    
+    return render_template('pdf_viewer.html', product=product, pdf_token=token)
 
 @app.route('/product/<int:product_id>/pdf/page/<int:page_number>')
 def product_pdf_page(product_id, page_number):
@@ -557,6 +588,30 @@ def product_pdf_page(product_id, page_number):
     except Exception as e:
         logger.error(f"Error serving PDF page: {e}")
         return jsonify({'error': 'Error loading PDF page'}), 500
+
+@app.route('/product/<int:product_id>/pdf/stream')
+def product_pdf_stream(product_id):
+    """Securely stream the PDF inline with a short-lived token; prevent download UI."""
+    product = Product.query.get_or_404(product_id)
+    if not product.pdf_catalog:
+        return jsonify({'error': 'No PDF catalog available'}), 404
+    
+    token = request.args.get('token', '')
+    if not verify_pdf_token(product_id, product.pdf_catalog, token):
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    pdf_path = os.path.join(app.config['UPLOAD_FOLDER'], product.pdf_catalog)
+    if not os.path.exists(pdf_path):
+        return jsonify({'error': 'PDF file not found'}), 404
+    
+    # Stream inline; hide download UI via viewer params in iframe
+    response = make_response(send_file(pdf_path, mimetype='application/pdf', as_attachment=False))
+    # Ensure inline disposition
+    response.headers['Content-Disposition'] = f"inline; filename=\"{product.pdf_catalog}\""
+    # Best-effort anti-download (cannot fully prevent client saves)
+    response.headers['Cache-Control'] = 'no-store'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    return response
 
 @app.route('/api/product/<int:product_id>/analytics')
 def product_analytics_api(product_id):
